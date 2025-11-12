@@ -15,21 +15,25 @@ plugins {
 }
 
 val generateBuildConfig by tasks.registering(Sync::class) {
-    val baseUrl = gradleLocalProperties(rootDir, providers).getProperty("base_url")
+    val accessKey = gradleLocalProperties(rootDir, providers).getProperty("unsplash_access_key_debug")
+    val secretKey = gradleLocalProperties(rootDir, providers).getProperty("unsplash_secret_key_debug")
+    val pageSize = gradleLocalProperties(rootDir, providers).getProperty("pagination_page_size")
 
     from(
         resources.text.fromString("""
-        |package com.andrii_a.shakeit
+        |package com.andrii_a.walleria
         |
         |object BuildConfig {
-        |    const val BASE_URL = "$baseUrl"
+        |    const val UNSPLASH_ACCESS_KEY = "$accessKey"
+        |    const val UNSPLASH_SECRET_KEY = "$secretKey"
+        |    const val PAGINATION_PAGE_SIZE= "$pageSize"
         |}
         |
       """.trimMargin()
         )
     ) {
         rename { "BuildConfig.kt" } // set the file name
-        into("com/andrii_a/shakeit/") // change the directory to match the package
+        into("com/andrii_a/walleria/") // change the directory to match the package
     }
 
     into(layout.buildDirectory.dir("generated-src/"))
@@ -39,7 +43,7 @@ kotlin {
     androidTarget {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
-            freeCompilerArgs.addAll("-P", "plugin:org.jetbrains.kotlin.parcelize:additionalAnnotation=com.andrii_a.shakeit.domain.util.PlatformParcelize")
+            //freeCompilerArgs.addAll("-P", "plugin:org.jetbrains.kotlin.parcelize:additionalAnnotation=com.andrii_a.walleria.domain.util.PlatformParcelize")
         }
     }
     
@@ -67,6 +71,7 @@ kotlin {
             implementation(libs.room.runtime.android)
 
             implementation(libs.androidx.core.splashscreen)
+            implementation(libs.androidx.browser)
         }
         commonMain {
             kotlin.srcDir(generateBuildConfig.map { it.destinationDir })
@@ -119,6 +124,8 @@ kotlin {
 
             implementation(libs.datastore)
             implementation(libs.datastore.preferences)
+
+            implementation(libs.cmptoast)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -129,6 +136,13 @@ kotlin {
             implementation(libs.kotlinx.coroutinesSwing)
 
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.ktor.server.core)
+            implementation(libs.ktor.server.netty)
+
+            implementation(libs.filekit.core)
+            implementation(libs.filekit.dialogs)
+            implementation(libs.filekit.dialogs.compose)
+            implementation(libs.filekit.coil)
         }
     }
 }

@@ -1,3 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WalleriaMultiplatform</string>
+    <string name="downloading_photo">Downloading photo</string>
+    <string name="download_started">Download started</string>
+    <string name="download_complete">Download complete</string>
+    <string name="download_failed">Download failed</string>
+    <string name="login_to_like_photo">Please login to like photo</string>
+    <string name="login_to_collect_photo">Please login to collect photo</string>
 </resources>

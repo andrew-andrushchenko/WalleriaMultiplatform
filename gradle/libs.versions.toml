@@ -1,12 +1,13 @@
 [versions]
-agp = "8.13.0"
+agp = "8.13.1"
 android-compileSdk = "36"
 android-minSdk = "24"
 android-targetSdk = "36"
+browser = "1.9.0"
 androidx-activity = "1.11.0"
 androidx-core = "1.17.0"
 androidx-espresso = "3.7.0"
-androidx-lifecycle = "2.9.5"
+androidx-lifecycle = "2.9.6"
 androidx-testExt = "1.3.0"
 composeHotReload = "1.0.0-rc02"
 composeMultiplatform = "1.9.0"
@@ -14,7 +15,7 @@ junit = "4.13.2"
 kotlin = "2.2.21"
 kotlinx-coroutines = "1.10.2"
 kotlin-serialization = "1.9.0"
-ktor = "3.3.1"
+ktor = "3.3.2"
 koin = "4.1.1"
 navigationCompose = "2.9.1"
 coil-compose-core = "3.3.0"
@@ -25,10 +26,12 @@ parcelize = "2.2.21"
 room = "2.8.3"
 ksp = "2.2.20-2.0.4"
 sqlite = "2.6.1"
-splashcreen = "1.0.1"
+splashcreen = "1.2.0"
 paging = "3.4.0-alpha04"
 material3-expressive = "1.9.0-alpha04"
 datastore = "1.1.7"
+fileDialogs = "0.12.0"
+cmpToast = "1.0.71"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -48,6 +51,8 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
@@ -56,7 +61,7 @@ koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization"}
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization" }
 
 coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil-compose-core" }
 coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil-compose-core" }
@@ -64,7 +69,7 @@ coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil-c
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil-compose-core" }
 
 constraintlayout = { module = "tech.annexflow.compose:constraintlayout-compose-multiplatform", version.ref = "constraint-layout" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime"}
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 
 material3-adaptive = { module = "org.jetbrains.compose.material3.adaptive:adaptive", version.ref = "material3-adaptive" }
 material3-adaptive-layout = { module = "org.jetbrains.compose.material3.adaptive:adaptive-layout", version.ref = "material3-adaptive" }
@@ -84,6 +89,15 @@ material3expressive = { module = "org.jetbrains.compose.material3:material3", ve
 
 datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+
+androidx-browser = { module = "androidx.browser:browser", version.ref = "browser" }
+
+filekit-core = { module = "io.github.vinceglb:filekit-core", version.ref = "fileDialogs" }
+filekit-dialogs = { module = "io.github.vinceglb:filekit-dialogs", version.ref = "fileDialogs" }
+filekit-dialogs-compose = { module = "io.github.vinceglb:filekit-dialogs-compose", version.ref = "fileDialogs" }
+filekit-coil = { module = "io.github.vinceglb:filekit-coil", version.ref = "fileDialogs" }
+
+cmptoast = { module = "network.chaintech:cmptoast", version.ref = "cmpToast" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
