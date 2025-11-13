@@ -154,12 +154,12 @@ class EditUserProfileViewModel(
                 when (result) {
                     is Resource.Empty, is Resource.Loading -> Unit
                     is Resource.Error -> {
-                        _profileUpdateMessageFlow.emit(UiText.WStringResource(Res.string.profile_data_not_updated))
+                        _profileUpdateMessageFlow.emit(UiText.StringRes(Res.string.profile_data_not_updated))
                     }
 
                     is Resource.Success -> {
                         localAccountRepository.saveAccountInfo(result.value)
-                        _profileUpdateMessageFlow.emit(UiText.WStringResource(Res.string.profile_data_updated_successfully))
+                        _profileUpdateMessageFlow.emit(UiText.StringRes(Res.string.profile_data_updated_successfully))
                     }
                 }
             }
