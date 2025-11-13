@@ -16,7 +16,8 @@ fun NavGraphBuilder.editUserProfileRoute(navController: NavController) {
         val state by viewModel.state.collectAsStateWithLifecycle()
 
         //val context = LocalContext.current
-        viewModel.profileUpdateMessageFlow.CollectAsOneTimeEvents { uiText ->
+        viewModel.profileUpdateMessageFlow.CollectAsOneTimeEvents { //uiText ->
+            //toast(uiText.asString())
             //context.toast(uiText.asString(context))
         }
 

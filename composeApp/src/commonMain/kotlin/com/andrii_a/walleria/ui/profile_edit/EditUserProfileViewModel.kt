@@ -136,11 +136,17 @@ class EditUserProfileViewModel(
 
     private fun validateNickname(nickname: String): Boolean =
         Regex.fromLiteral("([A-Za-z0-9_]+)").matches(nickname)
-    //Pattern.compile("([A-Za-z0-9_]+)").matcher(nickname).matches()
 
     private fun validateEmail(emailAddress: String): Boolean =
-        Regex.fromLiteral("([A-Za-z0-9_]+)\"").matches(emailAddress)
-    //Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
+        Regex.fromLiteral(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+        ).matches(emailAddress)
 
     private fun saveUserProfileData(userPrivateProfileData: UserPrivateProfileData) {
         userRepository.updatePrivateUserProfile(userPrivateProfileData)
